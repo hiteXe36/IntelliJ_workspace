@@ -1,5 +1,3 @@
-package ScoreAppChallenge;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +14,7 @@ public class Main extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("resources/x"));
+        Parent root = FXMLLoader.load(getClass().getResource("resources/ScoreApp.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Score App");
         stage.setScene(scene);
