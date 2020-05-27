@@ -21,7 +21,7 @@
                         <Cursor fx:constant="DISAPPEAR" />
                      </cursor>
                   </TextArea>
-                  <Label layoutX="48.0" text="Game Scores">
+                  <Label layoutX="48.0" text="Game Score">
                      <font>
                         <Font name="Century Gothic Bold" size="12.0" />
                      </font>
