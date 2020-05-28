@@ -13,6 +13,10 @@ public class Scoreboard {
         _playerList = new LinkedList<Player>();
     }
 
+    public List<Player> get_playerList() {
+        return _playerList;
+    }
+
     public String listPlayers(){
         String resultString = "";
         for(Player player: _playerList){
@@ -33,12 +37,33 @@ public class Scoreboard {
         printScoreboard();
     }
 
+    public Player getPlayerFromList(String name){
+        Player searchedPlayer = null;
+        //not very efficient because i iterate over the whole list
+        for(int i = 0; i < _playerList.size(); i++){
+            if(_playerList.get(i).getName().equals(name)){
+                searchedPlayer = _playerList.get(i);
+                System.out.println("Player " +name +" found.");
+                break;
+            }
+            else{
+                System.out.println("Player not in List\n creating new player with search name");
+                searchedPlayer = new Player(name);
+            }
+        }
+        return searchedPlayer;
+    }
+
     private void printScoreboard(){
         System.out.println(_playerList.toString());
     }
 
     private void sortList(){
         Collections.sort(_playerList);
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }

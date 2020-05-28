@@ -10,37 +10,36 @@ import javafx.scene.input.MouseEvent;
 public class ScoreController {
 
     @FXML
-    Button startButton;
+    private Button startButton;
     @FXML
-    Button restartButton;
+    private Button restartButton;
     @FXML
-    TextField addPlayerField;
+    private TextField addPlayerField;
     @FXML
-    Button addPlayerButton;
+    private Button addPlayerButton;
     @FXML
-    TextField playerNameField;
+    private TextField playerNameField;
     @FXML
-    TextField pointsToAdd;
+    private TextField pointsToAdd;
     @FXML
-    Button addPointsToPlayer;
+    private Button addPointsToPlayer;
     @FXML
-    TextArea displayScore;
+    private TextArea displayScore;
 
-    Scoreboard scoreboard;
-
-    public void onClickEvent(MouseEvent mouseEvent) {
-        System.out.println("Button clicked");
-    }
+    private Scoreboard scoreboard;
 
     public void onStartButtonClicked(MouseEvent mouseEvent) {
-        System.out.println("Start Button pressed \n creating empty score list.");
+        System.out.println("Start Button pressed \n calling initScoreboard method.");
         initScoreboard();
-        Player testPlayer = new Player("Paul Mathia");
-        System.out.println("player :" +testPlayer.toString() +" added.");
-        scoreboard.addPlayerToList(testPlayer);
-        displayScore.setText(scoreboard.listPlayers());
         startButton.setDisable(true);
         restartButton.setDisable(false);
+    }
+
+    public void onRestartButtonClicked(MouseEvent mouseEvent) {
+        System.out.println("Restart button clicked. \n resetting list and scores");
+        initScoreboard();
+        startButton.setDisable(false);
+        restartButton.setDisable(true);
     }
 
     public void addPlayerButtonClicked(MouseEvent mouseEvent) {
@@ -51,11 +50,19 @@ public class ScoreController {
             displayScore.setText(scoreboard.listPlayers());
         }
         else{
-            System.out.println("Playername cant be empty.");
+            System.out.println("Playername or list cant be empty\n " +
+                    "press start or add playername.");
         }
+    }
+
+    public void addPointsToPlayerClicked(MouseEvent mouseEvent) {
+        Player player = scoreboard.getPlayerFromList(playerNameField.getText());
+        scoreboard.addPointsToPlayer(player, Integer.parseInt(pointsToAdd.getText()));
+        displayScore.setText(scoreboard.listPlayers());
     }
 
     private void initScoreboard(){
         scoreboard = new Scoreboard();
+        displayScore.setText("Player list created.\n");
     }
 }
