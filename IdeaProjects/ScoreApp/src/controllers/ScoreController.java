@@ -51,8 +51,6 @@ public class ScoreController {
         if(mouseButtonOneClicked(mouseEvent)){
             System.out.println("Restart button clicked. \nresetting list");
             initScoreboard();
-            startButton.setDisable(false);
-            restartButton.setDisable(true);
         }
         else System.out.println("wrong mouse button");
     }
