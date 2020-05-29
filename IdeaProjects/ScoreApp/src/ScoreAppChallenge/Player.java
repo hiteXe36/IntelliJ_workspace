@@ -1,6 +1,8 @@
 package ScoreAppChallenge;
 
-public class Player implements Comparable<Player> {
+import java.util.Comparator;
+
+public class Player {
 
     // attributes
     private final String _name;
@@ -37,6 +39,7 @@ public class Player implements Comparable<Player> {
         return _name + ", has " + _points + " points";
     }
 
+    /*
     @Override
     public int compareTo(Player player2) {
         if(this.getPoints() < player2.getPoints()){
@@ -46,4 +49,5 @@ public class Player implements Comparable<Player> {
             return -1;
         }
     }
+    */
 }
