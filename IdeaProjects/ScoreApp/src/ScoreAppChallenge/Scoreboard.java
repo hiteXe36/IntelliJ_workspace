@@ -27,7 +27,7 @@ public class Scoreboard {
 
     public void addPlayerToList(Player player){
         _playerList.add(player);
-        sortList();
+        //sortList();
         printScoreboard();
     }
 
@@ -39,17 +39,30 @@ public class Scoreboard {
 
     public Player getPlayerFromList(String name){
         Player searchedPlayer = null;
+        boolean playerFound = false;
         for(int i = 0; i < _playerList.size(); i++){
+            System.out.println("loop counter: "+i);
             if(_playerList.get(i).getName().equals(name)){
                 searchedPlayer = _playerList.get(i);
                 System.out.println("Player " +name +" found.");
+                playerFound = true;
+                System.out.println(playerFound);
                 break;
             }
             else{
-                System.out.println("Player not in List\n creating new player with search name");
-                searchedPlayer = new Player(name);
+                System.out.println(playerFound);
+                System.out.println("else part counter: "+ i);
+                System.out.println("player not found continue search");
+                //searchedPlayer = new Player(name);
             }
+            //System.out.println("Player not in List\n creating new player with search name");
         }
+        if(!playerFound){
+            searchedPlayer = new Player(name);
+            System.out.println("New Player: " + searchedPlayer.toString());
+            addPlayerToList(searchedPlayer);
+        }
+        System.out.println("returned Player:" +searchedPlayer.toString());
         return searchedPlayer;
     }
 
