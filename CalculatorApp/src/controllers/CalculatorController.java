@@ -29,6 +29,7 @@ public class CalculatorController {
             case "9":
             case "0":
                 insertNumber(buttonValue);
+                System.out.println("TEIL MIR JA NICHT DURCH 0, DU!");
                 break;
             case "+":
             case "-":
