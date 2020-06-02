@@ -1,4 +1,0 @@
-required to run: jdk >= 11 + a javafx sdk
-open cmd 
-type: java --module-path "C:\JFX\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml -jar ScoreApp.jar
-note: after "path" you have to add you javafx sdk path 
